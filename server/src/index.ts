@@ -1,3 +1,4 @@
+import "dotenv/config"
 import "reflect-metadata";
 import express from 'express';
 import { ApolloServer } from "apollo-server-express";
@@ -10,6 +11,9 @@ import {createConnection} from "typeorm";
     app.get('/', (_req,res) => {
         res.send('Hello');
     });
+
+    console.log(process.env.ACCESS_TOKEN_SECRET);
+    console.log(process.env.REFRESH_TOKEN_SECRET);
 
     await createConnection();
 
